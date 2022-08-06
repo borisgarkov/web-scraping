@@ -11,7 +11,7 @@ class FileProcessor:
     '''
 
     def get_source_data(self) -> pd.DataFrame:
-        source = pd.read_csv(self.file_name, index_col=False, encoding='cp1252')
+        source = pd.read_csv(f'sources/{self.file_name}', index_col=False, encoding='cp1252')
         source.rename(columns=lambda x: x.strip(), inplace=True)
 
         source['Website'] = 'https://www.' + source['Website'].str.split().str[0]
